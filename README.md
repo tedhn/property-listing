@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Real Estate Application
 
-First, run the development server:
+This is a simple **Real Estate Application** built with **Next.js** and **Material-UI** for managing and viewing property listings. The application provides users (customers and admins) with the ability to search and filter properties, view detailed property information, and toggle between customer and admin views.
+
+### Features
+
+1. **Search and Filter Properties**
+   - Customers can search and filter properties based on location, type, and price range.
+   - Results are displayed in a card format with property details like price, rooms, bathrooms, and a thumbnail image.
+
+2. **Property Details View**
+   - A detailed page displays more information about a property, including location, city, state, property type, number of rooms, number of bathrooms, and price.
+   - Users can view photos of the property.
+
+3. **View Toggle (Customer / Admin)**
+   - A toggle switch allows users to switch between **Customer View** and **Admin View**.
+   - The customer view shows property listings, while the admin view (currently without CRUD functionality) would allow managing listings.
+
+4. **Charts for Property Statistics**
+   - The app displays charts using **ApexCharts** to show statistics such as:
+     - Median Property Price by Location.
+     - Number of Properties in Each Location.
+   - These charts provide insights into the market trends and the number of available properties in different locations.
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/real-estate-app.git
+cd real-estate-app
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open the application in your browser at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Next.js**: A React framework for building the web application.
+- **Material-UI**: A popular React UI framework for building the user interface.
+- **ApexCharts**: A charting library to display property statistics (median prices, number of properties, etc.).
+- **TailwindCSS**: A utility-first CSS framework used for styling and layout.
+- **React**: JavaScript library for building user interfaces.
+- **React State**: For managing the application's state, including property data and user selections.
+- **LocalStorage**: Used to persist data (properties) across page refreshes.
 
-## Learn More
+### Folder Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+/pages
+  /index.tsx         - Home page, shows property listings and search/filter functionality.
+  /property/[id].tsx - Property details page for each individual property.
+  /admin.tsx          - Admin page for managing properties (currently with viewing functionality only).
+/components
+  /PropertyCard.tsx   - Displays each property in a card format.
+  /SearchFilters.tsx  - Handles the search and filter functionality.
+  /Charts.tsx         - Renders the charts for property statistics.
+/styles
+  /globals.css        - Global styles.
+  /tailwind.css       - TailwindCSS configuration and custom styles.
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Future Enhancements
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Admin CRUD Functionality**: Implement the ability for admins to create, edit, delete, and manage property listings.
+- **Property Photo Upload**: Allow admins to upload property photos directly.
+- **User Authentication**: Implement login functionality for admins to restrict access to certain features.
+- **Database Integration**: Replace `localStorage` with a real backend database to store property data persistently.
 
-## Deploy on Vercel
+### License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
